@@ -27,60 +27,60 @@ oneToMany => Studenti - Corsi_di_laurea
 manyToMany => Studenti - Esami
 
 Departments:
--id
--name
--code
+-id | BIGINT - PK - AI - NOTNULL - UNIQUE
+-name | VARCHAR(50) - NOTNULL 
+-code | CHAR(5) - NOTNULL -UNIQUE
 
 Degree_courses:
--id
--id_department
--name
--code
+-id | BIGINT - PK - AI - NOTNULL - UNIQUE
+-id_department | FK - BIGINT
+-name | VARCHAR(100) - NOTNULL 
+-code | CHAR(5)
 
 Course_DegreeCourse: #####
--id
--id_Course
--id_DegreeCourse
+-id | BIGINT - PK - AI - NOTNULL - UNIQUE
+-id_Course | FK - BIGINT
+-id_DegreeCourse | FK - BIGINT
 
 Courses:
--id
--id_teacher
--name
--code
+-id | BIGINT - PK - AI - NOTNULL - UNIQUE
+-id_teacher | FK - BIGINT
+-name| VARCHAR(50) - NOTNULL 
+-code | CHAR(5)
 
 Student_Course: #######
--id
--id_student
--id_course
+-id | BIGINT - PK - AI - NOTNULL - UNIQUE
+-id_student | FK - BIGINT
+-id_course | FK - BIGINT
 
 Students:
--id
--id_degree_course
--fullname
--freshman
--date_of_birth
--email
--phone
+-id | BIGINT - PK - AI - NOTNULL - UNIQUE
+-id_degree_course | FK - BIGINT
+-freshman | CHAR(5) - NULL
+-fullname | VARCHAR(50) - NOTNULL 
+-date_of_birth | DATE - NULL
+-email | VARCHAR(30) - NULL
+-phone | INT - NULL
 
 Student_exam: ######
--id
--id_student
--id_exam
+-id | BIGINT - PK - AI - NOTNULL - UNIQUE
+-id_student | FK - BIGINT
+-id_exam | FK - BIGINT
+-number_of_exam | SMALLINT - NULL
+
 
 Exams:
--id
--id_course
--id_student
--name
--date
--number
--voto
+-id | BIGINT - PK - AI - NOTNULL - UNIQUE
+-id_course | FK - BIGINT
+-name | VARCHAR(100) - NOTNULL 
+-date | DATETIME - NULL
+-vote | TINYINT - NULL
 
 
 Teachers:
--id
--fullname
--email
--phone
--code
--role
+-id | BIGINT - PK - AI - NOTNULL - UNIQUE
+-fullname| VARCHAR(100) - NOTNULL 
+-email | VARCHAR(30) - NULL
+-phone | INT - NULL
+-code | CHAR(5) - NULL
+-role | VARCHAR(30) - NULL
