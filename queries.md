@@ -33,3 +33,13 @@ Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 SELECT COUNT(id) as total_teachers FROM `teachers` WHERE `phone` IS NUll;
 
 ```
+Contare tutti i corsi per cfu
+```sql
+SELECT COUNT(id) as total_courses, cfu FROM courses GROUP BY cfu;
+```
+
+Contare gli studenti raggruppandoli per anno di nascita
+```sql
+SELECT COUNT(id) as total_students, YEAR(`date_of_birth`) AS year_of_birth FROM `students` GROUP BY `YEAR_OF_BIRTH`;
+```
+
