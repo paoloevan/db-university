@@ -97,11 +97,12 @@ ORDER BY `teachers`.`id` ASC;
 BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
 
 ```sql
-SELECT `students`.`name` AS `Nome`, `students`.`surname` AS `Cognome`, `courses`.`name` AS `Nome corso`
+SELECT `students`.`name` AS `Nome`, `students`.`surname` AS `Cognome`, `courses`.`name` AS `Nome corso`, COUNT(`exams`.`id`) AS 'Tentativi'
 FROM `exams`
 JOIN `courses` ON `exams`.`course_id` = `courses`.`id`
 JOIN `exam_student` ON `exam_student`.`exam_id` = `exams`.`id`
 JOIN `students` ON `exam_student`.`student_id` = `students`.`id`
+GROUP BY `students`.`id`, `courses`.`id`
 ORDER BY `Cognome`, `Nome`, `Nome corso`;
 
 ```
